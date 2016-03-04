@@ -8,10 +8,9 @@ import threading
 
 Server = 'chat.freenode.net'
 Port = 8001
-Nick = 'mmmbot'
+Nick = 'NewPost'
 RealName = 'Debian Chinese Forums IRC Bot'
 Channel = '#debiancn'
-Msg = 'TEST'
 NewPostsDir = './NewPosts'
 
 
@@ -55,4 +54,3 @@ while True:
         print("Receive PING command form server ...")
         Socket.send('PONG {arg}\r\n'.format(arg=line[1]).encode())
         print("Send PONG commang to server ...")
-        Socket.send('PRIVMSG {channel} :{msg}\r\n'.format(channel=Channel, msg="Send PONG commang to server ...").encode())
