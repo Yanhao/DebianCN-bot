@@ -70,6 +70,7 @@ if NewDate > OldDate:
             with open(PostName, "w") as f:
                 NewPost = "论坛新帖: " + Entry.title + ' - ' + \
                     Entry.author + ' - ' + Entry.links[0].href
+                print(NewPost)
                 f.write(NewPost)
 
 WriteNewTimeStr()
