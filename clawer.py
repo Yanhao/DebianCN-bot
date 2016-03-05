@@ -13,13 +13,13 @@ def WriteNewTimeStr():
     with open(TimeFile, "w") as f:
         f.write(NewTimeStr)
 
+Url = "http://forums.debiancn.org/feed.php"
 TimeFile = "timefile"
 # 切换到脚本所在目录
 Directory, Filename = os.path.split(os.path.abspath(sys.argv[0]))
 os.chdir(Directory)
 
-Feed = feedparser.parse('http://forums.debiancn.org/feed.php')
-# Feed = feedparser.parse('http://forum.ubuntu.org.cn/feed.php')
+Feed = feedparser.parse(Url)
 NewTimeStr = Feed.updated
 
 if not os.path.exists(TimeFile):
@@ -64,6 +64,7 @@ if NewDate > OldDate:
         if EntryDate > OldDate:
             PostsDir = "NewPosts"
             if not os.path.isdir(PostsDir):
+                print("未发现 NewsPosts 目录，自动创建该目录...")
                 os.mkdir(PostsDir)
 
             PostName = "./NewPosts/post" + str(random.randint(100000, 999999))
